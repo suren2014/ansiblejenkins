@@ -1,11 +1,19 @@
 pipeline {
-  agent {label "${LABEL_NAME}" }
-
+  agent { label ${LABEL_NAME} }
+ 
   stages {
-    stage('ANSIBLE PLAYBOOK') {
+    stage('code') {
       steps {
-              ansiblePlaybook(
-                playbook: 'ansible/deploy.yml',
-                inventory: 'ansible/hosts.ini'
-                )
+        git url:"https://github.com/dalpratap2027/ansiblejenkins.git", branch: "main"
       }
+    }
+     stage('ANSIBLE PLAYBOOK') {
+      steps {
+        ansiblePlaybook(
+          playbook: 'ansible/deploy.yml'
+          inventory: 'ansible/hosts.ini'
+        )
+      }
+    }
+  }
+}
