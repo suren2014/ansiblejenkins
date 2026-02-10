@@ -1,10 +1,10 @@
 ---
-- name: jenkins ansible deployment
+- name: Jenkins Ansible Deployment
   hosts: all
   become: true
 
-  tasks: 
-    - name: docker container run
+  tasks:
+    - name: Run Docker container
       docker_container:
         name: web
         image: nginx
