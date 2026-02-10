@@ -4,11 +4,10 @@
   become: true
 
   tasks:
-    - name: Run Docker container
+    - name: run docker container
       docker_container:
         name: web
         image: nginx
-        tag: latest
         tty: true
         state: started
         ports:
