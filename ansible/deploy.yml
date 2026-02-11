@@ -1,6 +1,6 @@
 ---
 - name: Deploy Docker container on worker node
-  hosts: worker
+  hosts: all
   become: true
 
   vars:
